@@ -4,11 +4,11 @@ import time
 for root, dirs, files in os.walk('.'):
     # print(roots)
     for file in files:
-        filepath = os.path.join(root, file)
+        filepath = os.path.abspath(root)
         filetime = os.path.getmtime(file)
         formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(filetime))
         filesize = os.path.getsize(file)
-        parent_dir = os.path.dirname(file)
+        parent_dir = os.path.dirname(filepath)
 
         # print(file)
         print(
